@@ -1,26 +1,17 @@
-package com.amanlabs.profileservice.model;
+package com.amanlabs.profileservice.dto;
 
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.Date;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
+@Data
 @Builder
-@Entity
-@Table(name = "tbl_profiles")
-public class Profile {
+public class ProfileResponseDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private Long userId;
-    private String firstName;
-    private String lastName;
+    private String fullName;
     private Date dateOfBirth;
     private String gender;
     private String nativePlace;
@@ -28,9 +19,9 @@ public class Profile {
     private String jobTitle;
     private String industry;
     private String religion;
+    private String community;
     private String maritalStatus;
     private String about;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-
 }
