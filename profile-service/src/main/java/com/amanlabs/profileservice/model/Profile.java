@@ -13,7 +13,7 @@ import java.util.Date;
 @Builder
 @Entity
 @Table(name = "tbl_profiles")
-public class Profile {
+public class Profile extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,5 @@ public class Profile {
     private String religion;
     private String maritalStatus;
     private String about;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
 }

@@ -19,7 +19,6 @@ public class ProfileResponseDto {
     private String jobTitle;
     private String industry;
     private String religion;
-    private String community;
     private String maritalStatus;
     private String about;
     private LocalDateTime createdAt;
