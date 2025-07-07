@@ -31,4 +31,9 @@ public class Profile extends BaseEntity{
     private String maritalStatus;
     private String about;
 
+    @OneToOne(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Family familyDetails;
+
+    @Column(name = "is_deleted")
+    private Boolean isDeleted = false;
 }
