@@ -1,17 +1,16 @@
-package com.amanlabs.profileservice.dto;
+package com.amanlabs.profileservice.dto.profile;
 
-import lombok.Builder;
+import com.amanlabs.profileservice.dto.family.FamilyRequestDto;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
-@Builder
-public class ProfileResponseDto {
+public class ProfileRequestDto {
 
     private Long userId;
-    private String fullName;
+    private String firstName;
+    private String lastName;
     private Date dateOfBirth;
     private String gender;
     private String nativePlace;
@@ -19,8 +18,8 @@ public class ProfileResponseDto {
     private String jobTitle;
     private String industry;
     private String religion;
+    private String community;
     private String maritalStatus;
     private String about;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private FamilyRequestDto familyDetails;
 }
