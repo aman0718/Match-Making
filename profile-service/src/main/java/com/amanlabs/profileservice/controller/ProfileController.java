@@ -23,4 +23,16 @@ public class ProfileController {
         ProfileResponseDto responseDto = profileService.createProfile(requestDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
     }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<?> getProfile(@PathVariable Long userId){
+
+        ProfileResponseDto profile = profileService.getProfileByUserId(userId);
+
+        if(profile == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(profile);
+
+    }
 }
