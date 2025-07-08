@@ -10,14 +10,16 @@ import java.util.Optional;
 public interface ProfileService {
 
     ProfileResponseDto createProfile(ProfileRequestDto requestDto);
+
+    ProfileResponseDto getProfileByUserId(Long userId);
+
+    List<ProfileResponseDto> getAllProfiles();
+
     void deleteProfileByUserId(Long userId);
 
     void softDeleteProfileByUserId(Long userId);
 
-    ProfileResponseDto getProfileByUserId(Long userId);
-
-
-    List<ProfileResponseDto> getAllProfiles();
+    void restoreProfileByUserId(Long userId);
 
 
 }

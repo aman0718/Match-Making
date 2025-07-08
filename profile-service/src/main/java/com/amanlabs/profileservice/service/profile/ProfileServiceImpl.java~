@@ -134,6 +134,7 @@ public class ProfileServiceImpl implements ProfileService{
         if(profile.getIsDeleted().equals(!Boolean.TRUE)){
             throw new RuntimeException("Profile cannot be restored for userId: " + userId);
         }
+
         profile.setIsDeleted(false);
         profileRepository.save(profile);
     }

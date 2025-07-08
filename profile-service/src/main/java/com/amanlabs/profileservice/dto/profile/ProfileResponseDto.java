@@ -22,6 +22,7 @@ public class ProfileResponseDto {
     private String religion;
     private String maritalStatus;
     private String about;
+    private Boolean isDeleted;
     private FamilyResponseDto familyDetails;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
