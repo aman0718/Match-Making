@@ -55,4 +55,10 @@ public class ProfileController {
         profileService.deleteProfileByUserId(userId);
         return ResponseEntity.ok("Profile deleted successfully for userId: " + userId);
     }
+
+    @PutMapping("/{userId}/restore")
+    public ResponseEntity<?> restoreProfile(@PathVariable Long userId){
+        profileService.restoreProfileByUserId(userId);
+        return ResponseEntity.ok("Profile restored successfully for userId: " + userId);
+    }
 }
