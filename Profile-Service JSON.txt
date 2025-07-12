@@ -1,0 +1,23 @@
+{
+    "userId": 104,
+    "firstName": "Shamsher",
+    "lastName": "Randhawa",
+    "birthDetails": "1997-10-05",
+    "gender": "MALE",
+    "nativePlace": "Delhi",
+    "currentLocation": "New Delhi",
+    "jobTitle": "N/A",
+    "industry": "N/A",
+    "religion": "SIKH",
+    "maritalStatus": "SINGLE",
+    "about": "Passionate about travelling.",
+    "preference": "DATING",
+    "familyDetails": {
+        "fatherOccupation": "Govt Employee",
+        "motherOccupation": "Expired",
+        "numberOfBrothers": 0,
+        "numberOfSisters": 0,
+        "community": "SC",
+        "aboutFamily": "We are nuclear family."
+    }
+}
