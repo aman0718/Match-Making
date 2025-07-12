@@ -3,7 +3,8 @@ package com.amanlabs.profileservice.controller;
 
 import com.amanlabs.profileservice.dto.profile.ProfileRequestDto;
 import com.amanlabs.profileservice.dto.profile.ProfileResponseDto;
-import com.amanlabs.profileservice.service.profile.ProfileService;
+import com.amanlabs.profileservice.service.ProfileService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,21 +14,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/profiles")
+@RequiredArgsConstructor
 public class ProfileController {
 
-    @Autowired
-    private ProfileService profileService;
+
+    private final ProfileService profileService;
 
 
     @PostMapping
     public ResponseEntity<?> createProfile(@RequestBody ProfileRequestDto requestDto) {
 
         ProfileResponseDto responseDto = profileService.createProfile(requestDto);
+//        System.out.println("Status: "+responseDto.getStatus());
+//        System.out.println("Full Response DTO: "+responseDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<?> getProfile(@PathVariable Long userId){
+    public ResponseEntity<?> getProfileByUserId(@PathVariable Long userId){
 
         ProfileResponseDto profile = profileService.getProfileByUserId(userId);
 
@@ -60,5 +64,11 @@ public class ProfileController {
     public ResponseEntity<?> restoreProfile(@PathVariable Long userId){
         profileService.restoreProfileByUserId(userId);
         return ResponseEntity.ok("Profile restored successfully for userId: " + userId);
+    }
+
+    @GetMapping("/all-deleted")
+    public ResponseEntity<?> getAllProfilesDeleted(){
+        List<ProfileResponseDto> allDeletedProfiles = profileService.getAllProfileByIsDeletedTrue();
+        return ResponseEntity.ok(allDeletedProfiles);
     }
 }
